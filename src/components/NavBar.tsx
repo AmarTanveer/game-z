@@ -1,13 +1,20 @@
-import { HStack, Image, Text } from "@chakra-ui/react"
-import logo from "../assets/gamezlogo.png"
+import { HStack, Image, Text } from "@chakra-ui/react";
+import logo from "../assets/gamezlogo.png";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 function NavBar() {
   return (
-    <HStack>
-        <Image src={logo} width={"150px"} objectFit={"cover"} backgroundColor={"#FFC600"} padding={"10px"}></Image>
-        <Text fontSize="3xl" fontWeight={"1000"}>NavBar</Text>
+    <HStack justifyContent={"space-between"} padding={"10px"}>
+      <Image
+        src={logo}
+        width={"150px"}
+        objectFit={"cover"}
+        backgroundColor={"var(--yellow)"}
+        padding={"10px"}
+      ></Image>
+      <ColorModeSwitch></ColorModeSwitch>
     </HStack>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;
