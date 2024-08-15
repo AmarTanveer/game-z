@@ -11,6 +11,7 @@ function NavBar() {
         objectFit={"cover"}
         backgroundColor={"var(--yellow)"}
         padding={"10px"}
+        borderRadius={3}
       ></Image>
       <ColorModeSwitch></ColorModeSwitch>
     </HStack>
