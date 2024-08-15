@@ -1,4 +1,4 @@
-import { Card, CardBody, Heading, Image, Icon, HStack } from "@chakra-ui/react";
+import { Card, CardBody, Heading, Image, Icon, HStack, Badge } from "@chakra-ui/react";
 import {
   FaXbox,
   FaPlaystation,
@@ -16,7 +16,7 @@ import {
 import { BsNintendoSwitch } from "react-icons/bs";
 import { Game } from "../hooks/useGames";
 import { IconType } from "react-icons";
-import { FaX } from "react-icons/fa6";
+import CriticScore from "./CriticScore";
 
 interface Props {
   game: Game;
@@ -48,6 +48,7 @@ function GameCard({ game }: Props) {
       ></Image>
       <CardBody>
         <Heading fontSize={"xl"}>{game.name}</Heading>
+        <HStack justifyContent={"space-between"} alignItems={"center"}>
         <HStack my={3} wrap={"wrap"}>
           {game.platforms.map((platform) => (
             <Icon
@@ -60,6 +61,8 @@ function GameCard({ game }: Props) {
               as={platformIcons[platform.platform.slug]}
             ></Icon>
           ))}
+        </HStack>
+          <CriticScore score={game.metacritic}></CriticScore>
         </HStack>
       </CardBody>
     </Card>
