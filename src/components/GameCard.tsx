@@ -5,6 +5,8 @@ import {
   FaSteam,
   FaLinux,
   FaAndroid,
+  FaAppStoreIos,
+  FaGlobe
 } from "react-icons/fa";
 import {
   SiMacos,
@@ -12,6 +14,7 @@ import {
   SiPlaystation2,
   SiPlaystation4,
   SiPlaystation5,
+  SiPlaystationvita
 } from "react-icons/si";
 import { BsNintendoSwitch } from "react-icons/bs";
 import { Game } from "../hooks/useGames";
@@ -29,18 +32,23 @@ function GameCard({ game }: Props) {
     playstation3: SiPlaystation3,
     playstation2: SiPlaystation2,
     playstation: FaPlaystation,
+    "ps-vita": SiPlaystationvita,
     pc: FaSteam,
     macos: SiMacos,
     mac: SiMacos,
+    ios: FaAppStoreIos,
     "xbox-series-x": FaXbox,
     "xbox-one": FaXbox,
+    "xbox-old": FaXbox,
+    "xbox-store": FaXbox,
     xbox360: FaXbox,
     linux: FaLinux,
     android: FaAndroid,
     "nintendo-switch": BsNintendoSwitch,
+    web: FaGlobe
   };
   return (
-    <Card borderRadius={10} overflow={"hidden"}>
+    <Card width={"300px"} borderRadius={10} overflow={"hidden"}>
       <Image
         src={game.background_image}
         height={"180px"}
@@ -48,21 +56,22 @@ function GameCard({ game }: Props) {
       ></Image>
       <CardBody>
         <Heading fontSize={"xl"}>{game.name}</Heading>
-        <HStack justifyContent={"space-between"} alignItems={"center"}>
-        <HStack my={3} wrap={"wrap"}>
+        <HStack justifyContent={"space-between"} alignItems={"start"} my={3}>
+        <HStack  wrap={"wrap"}>
           {game.platforms.map((platform) => (
-            <Icon
+            <Badge
             key={platform.platform.id}
               boxSize={7}
               padding={1}
-              color={"gray.500"}
-              backgroundColor={"gray.800"}
+              colorScheme={"purple"}
               borderRadius={10}
               as={platformIcons[platform.platform.slug]}
-            ></Icon>
+            ></Badge>
           ))}
         </HStack>
+        <HStack>
           <CriticScore score={game.metacritic}></CriticScore>
+        </HStack>
         </HStack>
       </CardBody>
     </Card>
