@@ -48,7 +48,7 @@ function GameCard({ game }: Props) {
     web: FaGlobe
   };
   return (
-    <Card width={"300px"} borderRadius={10} overflow={"hidden"}>
+    <Card  borderRadius={10} overflow={"hidden"}>
       <Image
         src={game.background_image}
         height={"180px"}
