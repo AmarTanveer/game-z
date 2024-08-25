@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import apiClient from "../services/api-client";
-import { AxiosRequestConfig, CanceledError } from "axios";
+import { CanceledError } from "axios";
 import { Genre } from "./useGenres";
 
 interface Platform {
@@ -28,7 +28,7 @@ const useGames = (selectedGenre: Genre | null, deps?: any[]) => {
     const [loading, setLoading] = useState(false);
     deps = [selectedGenre?.id];
     useEffect(() => {
-        const controller = new AbortController();
+        // const controller = new AbortController();
         setLoading(true);
 
       apiClient
