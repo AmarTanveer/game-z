@@ -12,7 +12,7 @@ function GenreList({onSelectGenre}: Props) {
   return (
     <List>
       {genres.map((genresItem) => (
-        <ListItem onClick={() => onSelectGenre(genresItem)} key={genresItem.id} py={2} _hover={{backgroundColor: "gray.900", padding:"10px", borderRadius:"18px"}}> 
+        <ListItem onClick={() => {onSelectGenre(genresItem)}} key={genresItem.id} py={2} _hover={{backgroundColor: "gray.900", padding:"10px", borderRadius:"18px"}}> 
           <HStack >
             <Image src={genresItem.image_background} boxSize={10} borderRadius={10} objectFit="cover"></Image>
             <Text fontSize={18}>{genresItem.name}</Text>

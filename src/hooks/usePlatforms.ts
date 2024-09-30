@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 
-export interface Platform {
+export interface Platforms {
   id: number;
   name: string;
   slug: string;
 }
 
 const usePlatforms = () => {
-  const [platforms, setPlatforms] = useState<Platform[]>([]);
+  const [platforms, setPlatforms] = useState<Platforms[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
