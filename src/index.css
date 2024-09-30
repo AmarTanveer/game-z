@@ -1,3 +1,7 @@
 :root {
     --yellow: #FFC600;
 }
+
+form {
+    width: 100%;
+}

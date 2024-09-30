@@ -3,7 +3,11 @@ import logo from "../assets/gamezlogo.png";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
-function NavBar() {
+interface Props {
+  onSearch: (value: string) => void;
+}
+
+function NavBar({onSearch}: Props) {
   return (
     <HStack padding={5} gap={5}>
       <Image
@@ -14,7 +18,7 @@ function NavBar() {
         padding={"10px"}
         borderRadius={3}
       ></Image>
-      <SearchInput></SearchInput>
+      <SearchInput onSearch={onSearch}></SearchInput>
       <ColorModeSwitch></ColorModeSwitch>
     </HStack>
   );

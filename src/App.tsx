@@ -10,6 +10,7 @@ import { Platforms } from "./hooks/usePlatforms";
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState<Platforms | null>(null);
+  const [searchText, setSearchText] = useState("");
   return (
     <Grid
       templateAreas={{
@@ -23,7 +24,7 @@ function App() {
       }}
     >
       <GridItem area="nav">
-       <NavBar></NavBar>
+       <NavBar onSearch={searchText => setSearchText(searchText)}></NavBar>
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" px={5}>
@@ -33,7 +34,7 @@ function App() {
 
       <GridItem area="main">
         <PlatformSelector selectedPlatform={selectedPlatform} onSelectPlatfrom={(platfrom) => setSelectedPlatform(platfrom)}></PlatformSelector>
-        <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre} />
+        <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre} searchText={searchText} />
       </GridItem>
     </Grid>
   );

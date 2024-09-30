@@ -26,12 +26,13 @@ interface FetchGamesResponse {
 const useGames = (
   selectedGenre: Genre | null,
   selectedPlatform: Platforms | null,
+  searchText: string,
   deps?: any[]
 ) => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  deps = [selectedGenre?.id, selectedPlatform?.id];
+  deps = [selectedGenre?.id, selectedPlatform?.id, searchText];
   useEffect(
     () => {
       // const controller = new AbortController();
@@ -39,7 +40,7 @@ const useGames = (
 
       apiClient
         .get<FetchGamesResponse>("/games", {
-          params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id },
+          params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id, search: searchText },
         })
         .then((response) => {
           setGames(response.data.results);
