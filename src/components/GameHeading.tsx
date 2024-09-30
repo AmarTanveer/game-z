@@ -1,7 +1,6 @@
 import { Heading } from "@chakra-ui/react";
 import { Genre } from "../hooks/useGenres";
 import { Platforms } from "../hooks/usePlatforms";
-import { color } from "framer-motion";
 
 interface Props {
   selectedGenre: Genre | null;

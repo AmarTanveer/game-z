@@ -1,4 +1,4 @@
-import { Card, CardBody, Heading, Image, Icon, HStack, Badge } from "@chakra-ui/react";
+import { Card, CardBody, Heading, Image, HStack, Badge } from "@chakra-ui/react";
 import {
   FaXbox,
   FaPlaystation,
